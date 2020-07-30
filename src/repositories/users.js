@@ -1,4 +1,4 @@
-const knex = require('../../database')
+const knex = require('../../database/indexDataBase')
 const User = require('../models/User')
 const tableName = 'users'
 
