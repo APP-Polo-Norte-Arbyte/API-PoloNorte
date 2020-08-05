@@ -6,7 +6,12 @@ exports.up = function (knex) {
         table.string('model').notNull()
         table.string('brand').notNull()
         table.integer('year').notNull()
-        table.integer('store_id').notNull().references('stores.id')
+        table
+            .integer('store_id')
+            .notNull()
+            .references('stores.id')
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE')
         table.timestamps()
     })
 };

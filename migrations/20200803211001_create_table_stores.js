@@ -5,7 +5,12 @@ exports.up = function (knex) {
         table.increments()
         table.string('name').notNull()
         //chave primaria
-        table.integer('customers_id').notNull().references('customers.id')
+        table
+            .integer('customer_id')
+            .notNull()
+            .references('customers.id')
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE')
         table.timestamps()
     })
 };
