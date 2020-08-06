@@ -7,6 +7,7 @@ const login = async (req, res) => {
             throw { status: 404, message: "Dados incorretos" }
         }
         const data = await service.login(req.body)
+        res.status(202).json(created)
         res.json(data)
     } catch (error) {
         handleError(res, error)

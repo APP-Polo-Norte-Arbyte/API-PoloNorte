@@ -7,4 +7,6 @@ const routeName = "/users"
 // Cria login
 router.post(`${routeName}/login`, controller.login)
 
+router.post(`${routeName}/forgot-password`)
+
 module.exports = router
