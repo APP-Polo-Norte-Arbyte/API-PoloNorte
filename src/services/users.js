@@ -1,16 +1,16 @@
 const User = require('../models/User')
-const { encryptPassword } = require('./utils/encrypt')
+const { encryptPassword } = require('../utils/encrypt')
 const repository = require('../repositories/users')
-const { createToken } = require('./utils/jwt')
+const { createToken } = require('../utils/jwt')
 
 const create = async (data) => {
 
-    const userFound = await repository.getOne({ email: data.email })
-    
+    const userFound = await repository.getOne({ cpf: data.cpf })
+
     if (userFound.id) {
-        throw {status: 409, message: 'User already exists'}
+        throw { status: 409, message: 'User already exists' }
     }
-  
+
     const user = new User({
         ...data, id: undefined,
         created_at: undefined,
@@ -28,7 +28,7 @@ const create = async (data) => {
 
 
 const login = async loginData => {
-    const user = await repository.getOne({ email: loginData.email })
+    const user = await repository.getOne({ cpf: loginData.cpf })
     if (!user) {
         throw { status: 401, message: 'Not Authorized' }
     }
