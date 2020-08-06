@@ -6,9 +6,8 @@ const login = async (req, res) => {
         if (!req.body.cpf || !req.body.password) {
             throw { status: 404, message: "Dados incorretos" }
         }
-        const data = await service.login(req.body)
+        const created = await service.login(req.body)
         res.status(202).json(created)
-        res.json(data)
     } catch (error) {
         handleError(res, error)
     }
