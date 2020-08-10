@@ -2,8 +2,10 @@ const { Router } = require('express')
 const router = new Router()
 
 const users = require('./users')
+const equipments = require('./equipments')
 
 router.use(users)
+router.use(equipments)
 
 //quando não encontrar nenhuma rota
 router.use((req, res, next) => {
@@ -11,5 +13,6 @@ router.use((req, res, next) => {
     error.status = 404
     next(error)
 })
+
 
 module.exports = router

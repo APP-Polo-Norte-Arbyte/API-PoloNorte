@@ -20,6 +20,7 @@ exports.seed = async function (knex) {
   });
   return seedTable(knex, "equipments", [
     {
+      id: 1,
       year: 2020,
       model: "top",
       brand: "new",
@@ -28,6 +29,7 @@ exports.seed = async function (knex) {
       updated_at: now,
     },
     {
+      id: 2,
       year: 2020,
       model: "top",
       brand: "old",
@@ -36,6 +38,7 @@ exports.seed = async function (knex) {
       updated_at: now,
     },
     {
+      id: 3,
       year: 2019,
       model: "down",
       brand: "old",
