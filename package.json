@@ -11,7 +11,7 @@
     "migration:up:prod": "knex migrate:latest --env production",
     "migration:down": "knex migrate:down",
     "seed:create": "knex seed:make",
-    "seed":"knex seed:run --env development"
+    "seed": "knex seed:run --env development"
   },
   "keywords": [
     "node"
@@ -19,6 +19,7 @@
   "author": "Luciana Alves <luh.ana.af@gmail.com> (https://github.com/luh-alves/)",
   "license": "MIT",
   "dependencies": {
+    "@sendgrid/mail": "^7.2.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

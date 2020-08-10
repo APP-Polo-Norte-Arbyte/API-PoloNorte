@@ -1,11 +1,9 @@
 const crypto = require('crypto')
 
-const generateSalt = () => {
-    return crypto.randomBytes(16).toString('hex')
+const generatePassword = () => {
+    return crypto.randomBytes(6).toString('hex')
 }
-
-const encryptPassword = (password, salt = generateSalt()) => {
-
+const encryptPassword = (password, salt = generatePassword()) => {
     const encryptedPassword = crypto.pbkdf2Sync(
         password,
         salt,
@@ -13,13 +11,12 @@ const encryptPassword = (password, salt = generateSalt()) => {
         64,
         "sha512"
     )
-
     return {
         salt,
         encryptedPassword: encryptedPassword.toString('hex')
     }
 }
-
 module.exports = {
-    encryptPassword
+    encryptPassword,
+    generatePassword
 }
