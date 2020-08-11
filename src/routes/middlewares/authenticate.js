@@ -14,7 +14,7 @@ const authenticate = async (req, res, next) => {
 
         const user = await userService.getById(id)
 
-        if (!user) {
+        if (!user.id) {
             return res.status(403).json({ status: 403, message: "Forbidden" })
         }
 
